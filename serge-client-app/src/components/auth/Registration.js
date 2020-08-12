@@ -11,6 +11,14 @@ export default function Registration(props) {
     registrationErrors: "",
   });
 
+  const handleChange = (event) => {
+    console.log("Handling registration input change.", event);
+    setRegistration({
+      ...registration,
+      [event.target.name]: event.target.value,
+    });
+  };
+  
   const handleSubmit = (event) => {
     console.log("Registration form submitted.");
     axios
@@ -36,14 +44,6 @@ export default function Registration(props) {
         console.log("Registration error -", error);
       });
     event.preventDefault();
-  };
-
-  const handleChange = (event) => {
-    console.log("Handling registration input change.", event);
-    setRegistration({
-      ...registration,
-      [event.target.name]: event.target.value,
-    });
   };
 
   return (
