@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+// import axios from 'axios';
+import "./App.css";
+import Home from "./components/shared/Home";
+import Dashboard from "./components/routes/Dashboard";
 
-function App() {
+export default function App() {
+  const [currentUser, setCurrentUser] = useState({
+    loggedInStatus: "NOT_LOGGED_IN",
+    user: {},
+  });
+
+  const handleLogin = (data) => {
+    setCurrentUser({
+      loggedInStatus: "LOGGED_IN",
+      user: data.user
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path={"/"}
+            render={(props) => (
+              <Home
+                {...props}
+                handleLogin={handleLogin}
+                loggedInStatus={currentUser.loggedInStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/dashboard"}
+            render={(props) => (
+              <Dashboard
+                {...props}
+                loggedInStatus={currentUser.loggedInStatus}
+              />
+            )}
+          />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
