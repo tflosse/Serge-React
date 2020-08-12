@@ -32,7 +32,7 @@ export default function Login(props) {
         { withCredentials: true }
       )
       .then((response) => {
-        if (response.data.status === "created") {
+        if (response.data.logged_in) {
           props.handleSuccessfulAuth(response.data);
         }
         console.log("Login response -", response);
