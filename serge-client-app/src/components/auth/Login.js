@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default function Login(props) {
   const [session, setSession] = useState({
+    username: "",
     email: "",
     password: "",
     loginErrors: "",
@@ -23,6 +24,7 @@ export default function Login(props) {
         "http://localhost:3000/sessions",
         {
           user: {
+            username: session.username,
             email: session.email,
             password: session.password,
           },
@@ -45,6 +47,14 @@ export default function Login(props) {
     <div>
       <h3>Sign in</h3>
       <form onSubmit={handleSubmit}>
+        <input
+          type="username"
+          name="username"
+          placeholder="Name"
+          value={session.username}
+          onChange={handleChange}
+          required
+        ></input>
         <input
           type="email"
           name="email"
