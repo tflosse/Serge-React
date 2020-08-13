@@ -32,6 +32,29 @@ With auth:
 #### Schema & Models
 ![](https://i.imgur.com/77q2pUT.png)
 
+```rb
+# Users:
+## has_many :flights, :accommodations, :activities, :others
+## has_many :trips
+## has_many :reservations, through :trips
+rails g scaffold user username password_diggest
+# Reservations by type:
+## belongs_to :user
+## has_one :reservation
+rails g scaffold flight user:references nickname confirmation_number cost:decimal{6.2} on_date:date time:time airline flight_number from_city to_city
+rails g scaffold accommodation user:references nickname confirmation_number cost:decimal{6.2} location check_in_date:date check_out_date:date 
+rails g scaffold activity user:references nickname confirmation_number cost:decimal{6.2} on_date:date location details
+rails g scaffold other user:references nickname confirmation_number cost:decimal{6.2} on_date:date location details
+# Itineraries:
+## belongs_to :flight, :accommodation, :activity, :other
+## has_many :trips
+## has_many :users, through :trips
+rails g scaffold reservation flight:references accommodation:references activity:references other:references
+## belongs_to :user
+## belongs_to :reservation
+rails g scaffold trip user:references reservation:references
+```
+
 #### Routes
 
 #### API Configuration

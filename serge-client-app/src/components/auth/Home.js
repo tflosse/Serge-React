@@ -1,6 +1,7 @@
 import React from 'react';
-import Registration from '../auth/Registration';
-import Login from '../auth/Login';
+import Registration from './Registration';
+import Login from './Login';
+import './Home.css';
 
 export default function Home(props) {
 

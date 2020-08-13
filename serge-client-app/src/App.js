@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Home from "./components/shared/Home";
+
+// Components
+import Landing from "./components/shared/Landing";
+import Home from "./components/auth/Home";
 import Dashboard from "./components/routes/Dashboard";
 
 export default function App() {
+// Current user state
   const [currentUser, setCurrentUser] = useState({
     loggedInStatus: "NOT_LOGGED_IN",
     user: {},
   });
 
+// Check user login and session status
   useEffect(() => {
     const checkLoginStatus = async () => {
       await axios
@@ -42,6 +47,7 @@ export default function App() {
     checkLoginStatus();
   }, []);
 
+// User login and logout handlers
   const handleLogin = (data) => {
     console.log("Handling login.")
     setCurrentUser({
@@ -49,7 +55,6 @@ export default function App() {
       user: data.user,
     });
   };
-
   const handleLogout = () => {
     console.log("Handling logout.")
     axios.delete("http://localhost:3000/logout", { withCredentials: true})
@@ -67,9 +72,13 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route
+          <Route 
             exact
             path={"/"}
+            component={Landing}/>
+          <Route
+            exact
+            path={"/login"}
             render={(props) => (
               <Home
                 {...props}
