@@ -1,0 +1,68 @@
+.Home-Page {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lora', serif;
+    color: rgb(3,38,55);
+    background-color: rgb(242,236,240);
+}
+
+.Home-Page h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+    margin: 40px auto;
+}
+
+#member {
+    font-size: 1rem;
+    line-height: 40px;
+}
+
+.Registration-Container, .Login-Container {
+    height: 40vh;
+}
+
+.Registration-Container form, .Login-Container form {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin: 0 auto;
+    align-items: space-between;
+}
+
+form input {
+    margin: 5px 0;
+    height: 25px;
+    font-size: 1.1rem;
+}
+
+form button {
+    padding: 5px 15px;
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    align-self: center;
+    cursor: pointer;
+    color: rgb(242,236,240);
+    background-color: rgb(3,38,55);
+    border-radius: 100px;
+    border: none;
+}
+
+.material-icons {
+    text-align: center;
+    padding-top: 2px;
+    padding-right: 1px;
+    font-size: 1.8rem;
+}
+
+@media only screen and (min-width: 722px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}

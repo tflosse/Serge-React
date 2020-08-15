@@ -7,6 +7,8 @@ import "./App.css";
 import Landing from "./components/shared/Landing";
 import Home from "./components/auth/Home";
 import Dashboard from "./components/routes/Dashboard";
+import Layout from "./components/shared/Layout";
+import NewReservation from "./components/routes/NewReservation";
 
 export default function App() {
 // Current user state
@@ -88,16 +90,28 @@ export default function App() {
               />
             )}
           />
-          <Route
-            exact
-            path={"/dashboard"}
-            render={(props) => (
-              <Dashboard
-                {...props}
-                loggedInStatus={currentUser.loggedInStatus}
-              />
-            )}
-          />
+          <Layout>
+            <Route
+              exact
+              path={"/dashboard"}
+              render={(props) => (
+                <Dashboard
+                  {...props}
+                  loggedInStatus={currentUser.loggedInStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path={"/reservations/new"}
+              render={(props) => (
+                <NewReservation
+                  {...props}
+                  loggedInStatus={currentUser.loggedInStatus}
+                />
+              )}
+            />
+          </Layout>
         </Switch>
       </BrowserRouter>
     </div>

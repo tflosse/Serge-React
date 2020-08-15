@@ -1,0 +1,91 @@
+.Layout {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Nav-Header {
+    position: sticky;
+    top: 0;
+    height: 5vh;
+    color: rgb(242,236,240);
+    background-color: rgb(3,38,55);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.Logo-Container {
+    margin-left: 125px;
+    background: transparent;
+    border: none;
+}
+
+ /* .Brand {
+     font-family: "moontime";
+ } */
+
+.Logo-Container img {
+    max-height: 40px;
+    padding-top: 2px;
+}
+
+#Mobile-Menu {
+    font-size: 2rem;
+    padding-right: 3px;
+}
+
+.hidden {
+    display: none;
+    -webkit-transition: all 500ms ease;
+}
+
+.shown {
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    color: rgb(242,236,240);
+    background-color: rgb(3,38,55);
+    transition: right 400ms ease;
+}
+
+.shown a {
+    text-decoration: none;
+    color: rgb(242,236,240);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    -webkit-transition: all 400ms ease;
+}
+
+.shown a:hover {
+    background-color: rgba(5, 71, 104, 0.89);
+    transition: right 500ms ease;
+}
+
+.Main-Container {
+     height: 95vh;
+     font-family: 'Lora', serif;
+     color: rgb(3,38,55);
+ }
+
+.Footer {
+    position: fixed;
+    bottom: 3px;
+    left: 2px;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 0.6rem;
+    color: rgb(3,38,55);
+}
+
+@media only screen and (min-width: 722px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}

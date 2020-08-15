@@ -1,0 +1,29 @@
+.Dashboard, .Res-Form {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.Res-Form > div {
+    position: relative;
+    border-bottom: 1px solid black;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, rgb(255,255,255) 10%, rgba(242, 236, 240, 0.925) 82.5%, rgba(3, 38, 55, 0.705) 100%);
+}
+
+.Res-Form button {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    background: transparent;
+    border: none;
+}
+
+.collapse {
+    display: none;
+}
+
+.expand {
+
+}

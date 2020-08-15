@@ -16,7 +16,7 @@ export default function Landing(props) {
                 </p>
                 <Link to="/login" >
                 <button className="submit" type="submit">
-                Enter <span className="material-icons">login</span>
+                Start Planning
                 </button>
                 </Link>
             </div>

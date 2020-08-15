@@ -45,8 +45,9 @@ export default function Login(props) {
   };
 
   return (
-    <div>
-      <h3>Sign in</h3>
+    <div className="Login-Container">
+      <h3><em id="member">Already using Serge?</em><br />
+      Sign in</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="username"
@@ -72,7 +73,9 @@ export default function Login(props) {
           onChange={handleChange}
           required
         ></input>
-        <button type="submit">Log in</button>
+        <button type="submit">
+          <span className="material-icons">login</span>
+        </button>
       </form>
     </div>
   );

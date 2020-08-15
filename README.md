@@ -57,11 +57,24 @@ rails g scaffold trip user:references reservation:references
 
 #### Routes
 
+| Prefix | Verb | URI Pattern | Actions |
+| :---: | :---: | :----: | :-----: |
+| registrations | POST | /registrations | Register as a new user |
+| sessions | POST | /sessions | Login as a user |
+| flights, accommodations, activities, others | POST | */flights* etc. | Create a new reservation |
+| *-idem-* | READ | */flights* etc. | Get and render existing reservations by user |
+| *-idem-* | PUT | */flights* etc. | Update reservation information |
+| *-idem-* | DELETE | */flights* etc. | Delete a reservation |
+| reservations | POST | */reservations* | Create corresponding reservation |
+| trips | POST | /trips | Link reservation to user |
+
 #### API Configuration
 
 #### React Architecture
 
 #### Authentication
+
+Authentication was built in Rails using bcrypt and rack-cors gems. Users are able to register, login, and logout using http cookies.
 
 #### External APIs
 

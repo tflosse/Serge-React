@@ -48,7 +48,7 @@ export default function Registration(props) {
   };
 
   return (
-    <div>
+    <div className="Registration-Container">
       <h3>Sign up</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -83,7 +83,9 @@ export default function Registration(props) {
           onChange={handleChange}
           required
         ></input>
-        <button type="submit">Register</button>
+        <button type="submit">
+          <span className="material-icons">how_to_reg</span>
+        </button>
       </form>
     </div>
   );
