@@ -17,7 +17,7 @@ export default function Nav() {
         <Link to="/dashboard" className="Logo-Container">
             {/* Can replace logo image once Moontime font is available */}
             {/* <h1 className="Brand">serge,</h1> */}
-            <img src="https://i.imgur.com/R5t1teZ.png" alt="rectangular-logo" />
+            <img id="nav-logo" src="https://i.imgur.com/R5t1teZ.png" alt="rectangular-logo" />
         </Link>
         <div onClick={handleToggle}>
             <span className="material-icons" id="Mobile-Menu">

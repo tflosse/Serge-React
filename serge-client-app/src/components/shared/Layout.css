@@ -16,7 +16,6 @@
 }
 
 .Logo-Container {
-    /* margin-left: 125px; */
     background: transparent;
     border: none;
 }
@@ -25,9 +24,10 @@
      font-family: "moontime";
  } */
 
-.Logo-Container img {
-    /* max-height: 40px; */
-    /* padding-top: 2px; */
+#nav-logo {
+    margin-left: 125px;
+    max-height: 40px;
+    padding-top: 2px;
 }
 
 #Mobile-Menu {
