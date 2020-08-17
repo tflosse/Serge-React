@@ -16,7 +16,7 @@
 }
 
 .Logo-Container {
-    margin-left: 125px;
+    /* margin-left: 125px; */
     background: transparent;
     border: none;
 }
@@ -26,8 +26,8 @@
  } */
 
 .Logo-Container img {
-    max-height: 40px;
-    padding-top: 2px;
+    /* max-height: 40px; */
+    /* padding-top: 2px; */
 }
 
 #Mobile-Menu {

@@ -7,7 +7,7 @@ export default function Landing(props) {
     return (
         <div className="Landing-Page">
             <div className="Logo-Container">
-                <img className="Landing-logo" src="https://i.imgur.com/EfFEtiL.gif" alt="Serge Logo"/>  
+                <img className="Landing-logo" src="https://i.imgur.com/ZBlF5CC.gif" alt="Serge Logo"/>  
             </div>
             <div className="Welcome-Message">
                 <h3>We set out to help you bring back the two things we missed most: traveling & socializing.</h3>
