@@ -46,7 +46,9 @@ export default function Dashboard(props) {
         <div className="Dashboard">
             {tripsToDisplay}
             <div className="New-Trip">
-                <button><span className="material-icons" id="new-trip">add_circle</span></button>
+                <Link to="/reservations/new">
+                    <button><span className="material-icons" id="new-trip">add_circle</span></button>
+                </Link>
             </div>
         </div>
     )

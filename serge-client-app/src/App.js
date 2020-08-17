@@ -7,6 +7,7 @@ import "./App.css";
 import Landing from "./components/shared/Landing";
 import Home from "./components/auth/Home";
 import Dashboard from "./components/routes/Dashboard";
+import TripDetails from "./components/routes/TripDetails";
 import Layout from "./components/shared/Layout";
 import NewReservation from "./components/routes/NewReservation";
 
@@ -96,6 +97,16 @@ export default function App() {
               path={"/dashboard"}
               render={(props) => (
                 <Dashboard
+                  {...props}
+                  loggedInStatus={currentUser.loggedInStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path={"/trips/:id"}
+              render={(props) => (
+                <TripDetails
                   {...props}
                   loggedInStatus={currentUser.loggedInStatus}
                 />
