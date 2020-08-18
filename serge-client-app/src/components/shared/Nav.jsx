@@ -11,6 +11,11 @@ export default function Nav() {
     } else setNav("hidden")
   };
 
+  const handleChoice = (event) => {
+    setNav("hidden")
+  }
+  
+
   return (
     <>
         <header className="Nav-Header">
@@ -21,21 +26,21 @@ export default function Nav() {
         </Link>
         <div onClick={handleToggle}>
             <span className="material-icons" id="Mobile-Menu">
-                menu
+                {nav === "hidden" ? "menu" : "close"}
             </span>
         </div>
         </header>
         <div className={nav}>
-            <Link>
+            <Link to='/dashboard' onClick={handleChoice}>
                 Trips
             </Link>
-            <Link>
-                Reservations
-            </Link>
-            <Link>
+            {/* <Link>
+                
+            </Link> */}
+            <Link  onClick={handleChoice}>
                 Account Settings
             </Link>
-            <Link to="/login">
+            <Link to="/login"  onClick={handleChoice}>
                 Return to login
             </Link>
         </div>

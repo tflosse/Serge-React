@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import NewTrip from './NewTrip';
 import axios from 'axios';
 import './Dashboard.css'
 
 export default function Dashboard(props) {
 
     const [tripList, setTripList] = useState([]);
+    const [formClass, setFormClass] = useState("hidden")
+    const [buttonClass, setButtonClass] = useState("shown")
+
+    console.log("currentUser -", props.currentUser)
+    console.log("currentUserId -", props.currentUser.id)
+
+    const handleToggle = () => {
+        if (formClass === "hidden") {
+            setFormClass("shown")
+            setButtonClass("hidden")
+        } else {
+            setFormClass("hidden")
+            setButtonClass("shown")
+        }
+    };
 
     useEffect(() => {
         console.log("Getting trips")
@@ -46,9 +62,10 @@ export default function Dashboard(props) {
         <div className="Dashboard">
             {tripsToDisplay}
             <div className="New-Trip">
-                <Link to="/reservations/new">
-                    <button><span className="material-icons" id="new-trip">add_circle</span></button>
-                </Link>
+                <NewTrip className={formClass} userId={props.currentUser.id} />
+                <button className={buttonClass} onClick={handleToggle}>
+                    <span className="material-icons" id="new-trip">add_circle</span>
+                    </button>
             </div>
         </div>
     )

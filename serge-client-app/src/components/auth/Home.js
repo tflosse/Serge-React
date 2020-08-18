@@ -18,7 +18,7 @@ export default function Home(props) {
             <h1>Welcome</h1>
             <Registration handleSuccessfulAuth={handleSuccessfulAuth} />
             <Login handleSuccessfulAuth={handleSuccessfulAuth} />
-            <button onClick={() => {props.handleLogout()}}>Log out</button>
+            <button id="logout" onClick={() => {props.handleLogout()}}>Log out</button>
         </div>
     )
 };

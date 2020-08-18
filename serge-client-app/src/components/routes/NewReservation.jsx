@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 
 import Flight from '../forms/Flight';
-import Accommodation from '../forms/Accommodation';
+import Stay from '../forms/Stay';
 import Activity from '../forms/Activity';
 import Other from '../forms/Other';
 
@@ -10,7 +10,7 @@ export default function NewReservation() {
 
     const [category, setCategory] = useState({
         flight: "collapse",
-        accommodation: "collapse",
+        stay: "collapse",
         activity: "collapse",
         other: "collapse"
     });
@@ -36,8 +36,8 @@ export default function NewReservation() {
             <div>
                 <h3>Stay</h3>
                 <button><span className="material-icons">expand_more</span></button>
-                <Accommodation 
-                className={category.accommodation}
+                <Stay 
+                className={category.stay}
                 />
             </div>
             <div>

@@ -99,6 +99,7 @@ export default function App() {
                 <Dashboard
                   {...props}
                   loggedInStatus={currentUser.loggedInStatus}
+                  currentUser={currentUser.user}
                 />
               )}
             />
@@ -117,6 +118,16 @@ export default function App() {
               path={"/reservations/new"}
               render={(props) => (
                 <NewReservation
+                  {...props}
+                  loggedInStatus={currentUser.loggedInStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path={"/reservations/:id"}
+              render={(props) => (
+                <TripDetails
                   {...props}
                   loggedInStatus={currentUser.loggedInStatus}
                 />

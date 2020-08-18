@@ -5,6 +5,7 @@
 }
 
 .Nav-Header {
+    z-index: 10;
     position: sticky;
     top: 0;
     height: 5vh;

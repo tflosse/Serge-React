@@ -52,6 +52,17 @@ form button {
     border: none;
 }
 
+#logout {
+    width: 100px;
+    height: 40px;
+    align-self: center;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: rgb(3,38,55);
+    text-decoration: underline;
+}
+
 .material-icons {
     text-align: center;
     padding-top: 2px;
