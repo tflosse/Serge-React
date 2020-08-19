@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Home.css';
+import sergeApi from '../../apiConfig';
 
 export default function Registration(props) {
      
@@ -24,7 +25,7 @@ export default function Registration(props) {
     console.log("Registration form submitted.");
     axios
       .post(
-        "http://localhost:3000/registrations",
+        `${sergeApi}/registrations`,
         {
           user: {
             username: registration.username,
@@ -48,7 +49,7 @@ export default function Registration(props) {
   };
 
   return (
-    <div className="Registration-Container">
+    <div className={`Registration-Container ${props.class}`}>
       <h3>Sign up</h3>
       <form onSubmit={handleSubmit}>
         <input

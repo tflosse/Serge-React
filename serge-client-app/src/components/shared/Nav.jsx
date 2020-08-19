@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Layout.css";
 
-export default function Nav() {
+export default function Nav(props) {
   const [nav, setNav] = useState("hidden");
 
   const handleToggle = () => {
@@ -34,14 +34,14 @@ export default function Nav() {
             <Link to='/dashboard' onClick={handleChoice}>
                 Trips
             </Link>
-            {/* <Link>
-                
-            </Link> */}
-            <Link  onClick={handleChoice}>
+            <Link to="/about"  onClick={handleChoice}>
+                About
+            </Link>
+            <Link  to="/settings" onClick={handleChoice}>
                 Account Settings
             </Link>
             <Link to="/login"  onClick={handleChoice}>
-                Return to login
+                <button id="logout" onClick={() => {props.handleLogout()}}>Log out</button>
             </Link>
         </div>
     </>

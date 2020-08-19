@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Home.css';
+import sergeApi from '../../apiConfig';
 
 export default function Login(props) {
   const [session, setSession] = useState({
@@ -22,7 +23,7 @@ export default function Login(props) {
     console.log("Login attempted.");
     axios
       .post(
-        "http://localhost:3000/sessions",
+        `${sergeApi}/sessions`,
         {
           user: {
             username: session.username,
@@ -45,9 +46,8 @@ export default function Login(props) {
   };
 
   return (
-    <div className="Login-Container">
-      <h3><em id="member">Already using Serge?</em><br />
-      Sign in</h3>
+    <div className={`Login-Container ${props.class}`}>
+      <h3><em id="member">Already using Serge?</em><br />Sign In</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="username"

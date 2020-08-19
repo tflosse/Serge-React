@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
+import sergeApi from '../../apiConfig';
 
 export default function NewTrip(props) {
 
@@ -21,7 +22,7 @@ export default function NewTrip(props) {
         console.log("Trip form submitted.");
         axios
           .post(
-            "http://localhost:3000/trips",
+            `${sergeApi}/trips`,
             {
               trip: {
                 name: trip.name,
@@ -37,7 +38,6 @@ export default function NewTrip(props) {
           .catch((error) => {
             console.log("Trip not created -", error);
           });
-        // event.preventDefault();
       };
 
     return (
@@ -58,9 +58,10 @@ export default function NewTrip(props) {
             onChange={handleChange}
             required
             ></input>
-            <button type="submit">
-                <span className="material-icons">add</span>
-            </button>
+            <div className="New-Trip-Buttons">
+                <button type="submit">Add</button>
+                <button onClick={() => {props.handleCancel()}}>Cancel</button>
+            </div>
       </form>
     )
 }

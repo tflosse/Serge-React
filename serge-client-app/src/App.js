@@ -3,13 +3,18 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
+import sergeApi from './apiConfig';
 // Components
 import Landing from "./components/shared/Landing";
 import Home from "./components/auth/Home";
 import Dashboard from "./components/routes/Dashboard";
 import TripDetails from "./components/routes/TripDetails";
 import Layout from "./components/shared/Layout";
-import NewReservation from "./components/routes/NewReservation";
+// import NewReservation from "./components/routes/NewReservation";
+import About from "./components/shared/About";
+import Settings from "./components/shared/Settings";
+import ResShare from './components/routes/ResShare';
+import ResUpdate from './components/routes/ResUpdate';
 
 export default function App() {
 // Current user state
@@ -22,7 +27,7 @@ export default function App() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       await axios
-        .get("http://localhost:3000/logged_in", { withCredentials: true })
+        .get(`${sergeApi}/logged_in`, { withCredentials: true })
         .then((response) => {
           console.log("Logged in? ", response);
           if (
@@ -60,7 +65,7 @@ export default function App() {
   };
   const handleLogout = () => {
     console.log("Handling logout.")
-    axios.delete("http://localhost:3000/logout", { withCredentials: true})
+    axios.delete(`${sergeApi}/logout`, { withCredentials: true})
     .then(response => {
       setCurrentUser({
       loggedInStatus: "NOT_LOGGED_IN",
@@ -91,7 +96,7 @@ export default function App() {
               />
             )}
           />
-          <Layout>
+          <Layout currentUser={currentUser}>
             <Route
               exact
               path={"/dashboard"}
@@ -113,7 +118,7 @@ export default function App() {
                 />
               )}
             />
-            <Route
+            {/* <Route
               exact
               path={"/reservations/new"}
               render={(props) => (
@@ -122,12 +127,32 @@ export default function App() {
                   loggedInStatus={currentUser.loggedInStatus}
                 />
               )}
+            /> */}
+            <Route
+              exact
+              path={"/reservations/:id/share"}
+              component={ResShare}
             />
             <Route
               exact
-              path={"/reservations/:id"}
+              path={"/reservations/:id/update"}
               render={(props) => (
-                <TripDetails
+                <ResUpdate
+                  {...props}
+                  loggedInStatus={currentUser.loggedInStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path={"/about"}
+              component={About}
+            />
+            <Route
+              exact
+              path={"/settings"}
+              render={(props) => (
+                <Settings
                   {...props}
                   loggedInStatus={currentUser.loggedInStatus}
                 />

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './ReservationDetails.css'
 
-export default function ReservationDetails() {
+export default function ReservationDetails(props) {
 
     const [reservation, setReservation] = useState({});
 
@@ -21,13 +20,13 @@ export default function ReservationDetails() {
             })
         };
         getReservation();
+
     }, []);
-
-    console/log(reservation)
-
     return (
         <div>
-            
+            <Link to="/reservations/:id/share">
+                    <button><span className="material-icons" id="share-trip">share</span></button>
+            </Link>
         </div>
     )
 }

@@ -2,24 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import NewTrip from './NewTrip';
 import axios from 'axios';
-import './Dashboard.css'
+import './Dashboard.css';
+import sergeApi from '../../apiConfig';
 
 export default function Dashboard(props) {
 
     const [tripList, setTripList] = useState([]);
     const [formClass, setFormClass] = useState("hidden")
-    const [buttonClass, setButtonClass] = useState("shown")
-
-    console.log("currentUser -", props.currentUser)
-    console.log("currentUserId -", props.currentUser.id)
+    const [buttonClass, setButtonClass] = useState("")
 
     const handleToggle = () => {
         if (formClass === "hidden") {
-            setFormClass("shown")
+            setFormClass("showForm")
             setButtonClass("hidden")
         } else {
             setFormClass("hidden")
-            setButtonClass("shown")
+            setButtonClass("")
         }
     };
 
@@ -27,7 +25,7 @@ export default function Dashboard(props) {
         console.log("Getting trips")
         const getTrips = async () => {
             await axios
-            .get("http://localhost:3000/trips", { withCredentials: true })
+            .get(`${sergeApi}/trips`, { withCredentials: true })
             .then((response) => {
                 console.log("Trips - reponse: ", response)
                 setTripList(response.data)
@@ -51,9 +49,6 @@ export default function Dashboard(props) {
                     <h3>{trip.name}</h3>
                     <h4>{getDate(trip.start_date)}</h4>
                 </Link>
-                {/* <button className="delete-button">
-                    <span className="material-icons delete-icon">delete</span>
-                </button> */}
             </div>
         )
     });
@@ -62,10 +57,10 @@ export default function Dashboard(props) {
         <div className="Dashboard">
             {tripsToDisplay}
             <div className="New-Trip">
-                <NewTrip className={formClass} userId={props.currentUser.id} />
+                <NewTrip class={formClass} userId={props.currentUser.id} handleCancel={handleToggle}/>
                 <button className={buttonClass} onClick={handleToggle}>
                     <span className="material-icons" id="new-trip">add_circle</span>
-                    </button>
+                </button>
             </div>
         </div>
     )

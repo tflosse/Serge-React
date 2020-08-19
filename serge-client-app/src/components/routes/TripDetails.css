@@ -1,0 +1,101 @@
+.Trip-Details {
+    width: 100vw;
+    height: 88.5vh;
+    padding-top: 4vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#update-name {
+    border: none;
+    background: transparent;
+    padding-left: 10px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: rgb(3, 38, 55);
+    font-family: 'Lora', serif;
+    margin: 15px auto;
+    text-decoration: underline;
+}
+
+.hide-field {
+    display: none;
+}
+
+.show-field {
+    display: inline;
+}
+
+.Reservations-Container {
+    position: relative;
+    width: 95vw;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    margin-bottom: 2vh;
+}
+
+#no-res {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.Reservation-Container {
+    border-radius: 4px;
+    margin: 15px;
+    min-width: 90vw;
+    min-height: 50vh;
+    position: relative;
+}
+
+#flight {
+    background-color: rgba(216, 121, 81, 0.856);
+}
+
+#activity {
+    background-color: rgba(46, 140, 142, 0.849);   
+}
+
+#stay {
+    background-color: rgba(239, 183, 123, 0.849);
+}
+
+#other {
+    background-color: rgba(221, 184, 169, 0.911);
+}
+
+.reservation-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 20px auto;
+    position: absolute;
+    bottom: 1vh;
+}
+
+.reservation-buttons > a > button, .reservation-buttons > button {
+    background-color: rgba(242, 236, 240, 0.932);
+    border: none;
+    border-radius: 100px;
+    color: rgba(3, 38, 55, 0.836);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    padding: 7px 10px 5px 10px;
+}
+
+.trip-button {
+    color: rgba(242, 236, 240, 0.932);
+    background-color: rgb(3, 38, 55);
+    border-radius: 100px;
+    border: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    padding: 9px 10px 7px 10px;
+    margin: 10px 45px;
+}
+
+.trip-button a {
+    text-decoration: none;
+    color: rgba(242, 236, 240, 0.932);
+}

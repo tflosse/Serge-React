@@ -5,8 +5,8 @@
     overflow: scroll;
     align-content: space-around;
     width: 100vw;
-    height: 95vh;
-    padding-top: 3vh;
+    height: 88.5vh;
+    padding-top: 4vh;
 }
 
 .Dashboard {
@@ -21,7 +21,7 @@
     background-color: rgba(3, 38, 55, 0.836);
     position: relative;
     width: 80vw;
-    height: 18vh;
+    min-height: 16vh;
     margin: 10px auto;
 }
 
@@ -35,16 +35,43 @@
     text-decoration: none;
 }
 
-.New-Trip button {
+.New-Trip > button {
     border: none;
     background-color: transparent;
     color: rgb(242,236,240);
     margin: auto;
-    margin-top: 6vh
+    margin-top: 5vh;
 }
 
 #new-trip {
     font-size: 3rem;
+}
+
+.showForm {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.showForm input {
+    margin: 5px 20px;
+    border: none;
+    height: 25px;
+    font-size: 1.1rem;
+}
+
+.New-Trip-Buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.New-Trip-Buttons > button {
+    background-color: rgba(242, 236, 240, 0.932);
+    color: rgba(3, 38, 55, 0.836);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    padding-top: 7px;
 }
 
 .Res-Form > div {
