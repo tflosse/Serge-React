@@ -1,20 +1,19 @@
 .Trip-Details {
     width: 100vw;
-    height: 88.5vh;
-    padding-top: 4vh;
+    height: 90vh;
+    padding-top: 2.5vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #update-name {
     border: none;
     background: transparent;
-    padding-left: 10px;
-    font-size: 1.3rem;
-    font-weight: bolder;
+    font-size: 0.8rem;
     color: rgb(3, 38, 55);
     font-family: 'Lora', serif;
-    margin: 15px auto;
+    margin: 10px auto;
     text-decoration: underline;
 }
 
@@ -23,7 +22,25 @@
 }
 
 .show-field {
-    display: inline;
+    position: absolute;
+    left: 9vw;
+    top: 3.5vh;
+    z-index: 8;
+}
+
+.show-field input {
+    padding: 3px 10px;
+    font-size: 1.1rem;
+    font-family: 'Lora', serif;
+    color: rgba(3, 38, 55, 0.836);
+    width: 75vw;
+}
+
+.show-field button {
+    background-color: rgb(242, 236, 240);
+    border: none;
+    border-radius: 100px;
+    margin-top: 2px;
 }
 
 .Reservations-Container {
@@ -79,9 +96,13 @@
     border: none;
     border-radius: 100px;
     color: rgba(3, 38, 55, 0.836);
-    font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
     padding: 7px 10px 5px 10px;
+}
+
+.Trip-Details h4 {
+    margin: 5px auto;
+    margin-bottom: 20px;
 }
 
 .trip-button {

@@ -92,6 +92,7 @@ export default function TripDetails(props) {
       .catch((error) => {
         console.log(error);
       });
+      setUpdateInput("hide-field")
   };
 
   const handleDeleteResa = async (event) => {
@@ -149,34 +150,48 @@ export default function TripDetails(props) {
     );
   });
 
+  function getSum(arr) {
+    const costArr = [];
+    for (let i = 0; i <= arr.length-1; i++) {
+      costArr.push(parseFloat(arr[i].cost));
+    }
+    return costArr.reduce(function(a, b) {
+      return a + b;
+    }, 0);
+  };
+  const totalCost = getSum(reservations);
+
   return (
     <div className="Trip-Details">
-        <button onClick={toggleInput} id="update-name">
-        {trip.name}
-        </button>
-        <div className={updateInput}>
-            <input
-            type="name"
-            name="name"
-            placeholder="Rename this trip"
-            value={trip.name}
-            onChange={handleNameChange}
-            ></input>
-            <button onClick={handleNameUpdate}>Update</button>
-    </div>
-    <div className="Reservations-Container">
-            {reservationsToDisplay.length !== 0 ? (
-            reservationsToDisplay
-            ) : (
-            <p id="no-res">There are no reservations yet!</p>
-            )}
-        </div>
-        <button className="trip-button"><Link to="/reservations/new">
-            Add a Reservation
-            </Link></button>
-        <button className="trip-button" onClick={handleDeleteTrip}>
-            Delete Trip
-            </button>
+      <h3>{trip.name}<br />
+      <span onClick={toggleInput} id="update-name">edit</span>
+      </h3>
+      <div className={updateInput}>
+        <input
+          type="name"
+          name="name"
+          placeholder="Rename this trip"
+          value={trip.name}
+          onChange={handleNameChange}
+        ></input><br />
+        <button onClick={handleNameUpdate}><span className="material-icons">
+done_all
+</span></button>
+      </div>
+      <div className="Reservations-Container">
+        {reservationsToDisplay.length !== 0 ? (
+          reservationsToDisplay
+        ) : (
+          <p id="no-res">There are no reservations yet!</p>
+        )}
+      </div>
+      <h4>Total cost: $ {totalCost}</h4>
+      <button className="trip-button">
+        <Link to="/reservations/new">Add a Reservation</Link>
+      </button>
+      <button className="trip-button" onClick={handleDeleteTrip}>
+        Delete Trip
+      </button>
     </div>
   );
 }
